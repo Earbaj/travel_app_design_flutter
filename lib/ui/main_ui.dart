@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel/model/images_lists.dart';
 import 'package:travel/ui/details_ui.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -24,7 +25,7 @@ class HomeScreen extends StatelessWidget {
       "There is a small adjoining island that is separated at high tide, called Chera Dwip.";
   final String description_sajek = "The name of Sajek Valley came from the Sajek River that originates from Karnafuli river. "
       "The Sajek river works as a border between Bangladesh and India.";
-
+  final Images img = new Images();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +41,7 @@ class HomeScreen extends StatelessWidget {
             onTap: (){
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Details(title: "Cox's Bazar",)),
+                MaterialPageRoute(builder: (context) => Details(title: "Cox's Bazar", images: img.images_cox,)),
               );
             },
             child: design_each_page(img: img_1,
@@ -49,10 +50,18 @@ class HomeScreen extends StatelessWidget {
                 description: description_cox),
           ),
 
-          design_each_page(img: img_2,
-              title: "Kaptai Lake",
-              pageNumber: 2,
-              description: description_kaptai),
+          InkWell(
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Details(title: "Kaptai Lake", images: img.images_kaptai,)),
+              );
+            },
+            child: design_each_page(img: img_2,
+                title: "Kaptai Lake",
+                pageNumber: 2,
+                description: description_kaptai),
+          ),
           design_each_page(img: img_3,
               title: "St. Martin's Island",
               pageNumber: 3,
