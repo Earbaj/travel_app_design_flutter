@@ -25,8 +25,33 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(
+      //   leading: Icon(Icons.menu, color: Colors.black87,),
+      //   backgroundColor: Color.fromRGBO(244, 243, 243, 1),
+      //   elevation: 0,
+      // ),
       body: PageView(
-
+        controller: controller,
+        children: [
+          design_each_page(img: img_1,
+              title: "Cox's Bazar",
+              pageNumber: 1,
+              description: description_cox),
+          design_each_page(img: img_2,
+              title: "Kaptai Lake",
+              pageNumber: 2,
+              description: description_kaptai),
+          design_each_page(img: img_3,
+              title: "St. Martin's Island",
+              pageNumber: 3,
+              description: description_st_martin
+          ),
+          design_each_page(img: img_4,
+              title: "Sajek Valley",
+              pageNumber: 4,
+              description: description_sajek
+          ),
+        ],
       ),
     );
   }
