@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:travel/ui/details_ui.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
-  final PageController controller = PageController(initialPage: 0);
+  final PageController controller = PageController(
+      initialPage: 0,
+  );
   final String img_1 = "https://media-cdn.tripadvisor.com/media/photo-c/2560x500/10/e2/f8/43/longest-sea-beach-in.jpg";
   final String img_2 = "https://www.travelmate.com.bd/wp-content/uploads/2019/07/Kaptai-Lake-2.jpg";
   final String img_3 = "https://avijatrik.org/wp-content/uploads/2019/06/cover-3-870x555.jpg";
@@ -33,10 +36,19 @@ class HomeScreen extends StatelessWidget {
       body: PageView(
         controller: controller,
         children: [
-          design_each_page(img: img_1,
-              title: "Cox's Bazar",
-              pageNumber: 1,
-              description: description_cox),
+          InkWell(
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Details(title: "Cox's Bazar",)),
+              );
+            },
+            child: design_each_page(img: img_1,
+                title: "Cox's Bazar",
+                pageNumber: 1,
+                description: description_cox),
+          ),
+
           design_each_page(img: img_2,
               title: "Kaptai Lake",
               pageNumber: 2,
